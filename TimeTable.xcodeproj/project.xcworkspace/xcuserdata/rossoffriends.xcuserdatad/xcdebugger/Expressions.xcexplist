@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__39+[TimeTableSqliteDB databaseQuery:sql:]_block_invoke:TimeTableSqliteDB.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[TimeTableSqliteDB databaseQuery:sql:]:TimeTableSqliteDB.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[Professor initWithData:]:Professor.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[Professor createModel:]:Professor.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

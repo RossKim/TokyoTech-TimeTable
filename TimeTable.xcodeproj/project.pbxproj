@@ -24,6 +24,15 @@
 		AE76F9B6172C36C0000DA0A1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE76F9B4172C36C0000DA0A1 /* MainStoryboard.storyboard */; };
 		AE76F9B9172C36C0000DA0A1 /* TimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE76F9B8172C36C0000DA0A1 /* TimeTableViewController.m */; };
 		AE76F9C0172C3766000DA0A1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE76F9BF172C3766000DA0A1 /* libsqlite3.dylib */; };
+		AEAB51C3172EBE9400BC6A84 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB51C2172EBE9400BC6A84 /* Course.m */; };
+		AEAB51C8172EC82C00BC6A84 /* timetable.db3 in Resources */ = {isa = PBXBuildFile; fileRef = AEAB51C7172EC82C00BC6A84 /* timetable.db3 */; };
+		AEAB51CB172EC95B00BC6A84 /* Professor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB51CA172EC95B00BC6A84 /* Professor.m */; };
+		AEE7E008172D6D6800B421C6 /* TimeTableSqliteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE7E007172D6D6800B421C6 /* TimeTableSqliteDB.m */; };
+		AEE7E00C172D75CE00B421C6 /* TimeTableNotificationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE7E00B172D75CE00B421C6 /* TimeTableNotificationUtil.m */; };
+		AEE7E010172D773E00B421C6 /* TimeTableListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE7E00F172D773E00B421C6 /* TimeTableListViewController.m */; };
+		AEEC8F34172ED36E004EE343 /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC8F33172ED36E004EE343 /* Subject.m */; };
+		AEEC8F37172ED79F004EE343 /* SubjectTimeMap.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC8F36172ED79F004EE343 /* SubjectTimeMap.m */; };
+		AEEC8F3A172EEB29004EE343 /* TimeTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEC8F39172EEB29004EE343 /* TimeTableModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +63,23 @@
 		AE76F9B7172C36C0000DA0A1 /* TimeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeTableViewController.h; sourceTree = "<group>"; };
 		AE76F9B8172C36C0000DA0A1 /* TimeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeTableViewController.m; sourceTree = "<group>"; };
 		AE76F9BF172C3766000DA0A1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AEAB51C1172EBE9400BC6A84 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = Model/Course.h; sourceTree = "<group>"; };
+		AEAB51C2172EBE9400BC6A84 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Model/Course.m; sourceTree = "<group>"; };
+		AEAB51C7172EC82C00BC6A84 /* timetable.db3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = timetable.db3; sourceTree = "<group>"; };
+		AEAB51C9172EC95B00BC6A84 /* Professor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Professor.h; path = Model/Professor.h; sourceTree = "<group>"; };
+		AEAB51CA172EC95B00BC6A84 /* Professor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Professor.m; path = Model/Professor.m; sourceTree = "<group>"; };
+		AEE7E006172D6D6800B421C6 /* TimeTableSqliteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeTableSqliteDB.h; path = Model/TimeTableSqliteDB.h; sourceTree = "<group>"; };
+		AEE7E007172D6D6800B421C6 /* TimeTableSqliteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeTableSqliteDB.m; path = Model/TimeTableSqliteDB.m; sourceTree = "<group>"; };
+		AEE7E00A172D75CE00B421C6 /* TimeTableNotificationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeTableNotificationUtil.h; path = Util/TimeTableNotificationUtil.h; sourceTree = "<group>"; };
+		AEE7E00B172D75CE00B421C6 /* TimeTableNotificationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeTableNotificationUtil.m; path = Util/TimeTableNotificationUtil.m; sourceTree = "<group>"; };
+		AEE7E00E172D773E00B421C6 /* TimeTableListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableListViewController.h; sourceTree = "<group>"; };
+		AEE7E00F172D773E00B421C6 /* TimeTableListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableListViewController.m; sourceTree = "<group>"; };
+		AEEC8F32172ED36E004EE343 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Subject.h; path = Model/Subject.h; sourceTree = "<group>"; };
+		AEEC8F33172ED36E004EE343 /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Subject.m; path = Model/Subject.m; sourceTree = "<group>"; };
+		AEEC8F35172ED79F004EE343 /* SubjectTimeMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectTimeMap.h; path = Model/SubjectTimeMap.h; sourceTree = "<group>"; };
+		AEEC8F36172ED79F004EE343 /* SubjectTimeMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectTimeMap.m; path = Model/SubjectTimeMap.m; sourceTree = "<group>"; };
+		AEEC8F38172EEB29004EE343 /* TimeTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeTableModel.h; path = Model/TimeTableModel.h; sourceTree = "<group>"; };
+		AEEC8F39172EEB29004EE343 /* TimeTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeTableModel.m; path = Model/TimeTableModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,11 +128,15 @@
 		AE76F9A2172C36C0000DA0A1 /* TimeTable */ = {
 			isa = PBXGroup;
 			children = (
+				AEAB51C7172EC82C00BC6A84 /* timetable.db3 */,
 				AE76F9D1172C37FE000DA0A1 /* Model */,
 				AE76F9B4172C36C0000DA0A1 /* MainStoryboard.storyboard */,
 				AE76F9B7172C36C0000DA0A1 /* TimeTableViewController.h */,
 				AE76F9B8172C36C0000DA0A1 /* TimeTableViewController.m */,
+				AEE7E00D172D75D200B421C6 /* Util */,
 				AE76F9A3172C36C0000DA0A1 /* Supporting Files */,
+				AEE7E00E172D773E00B421C6 /* TimeTableListViewController.h */,
+				AEE7E00F172D773E00B421C6 /* TimeTableListViewController.m */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -148,8 +178,29 @@
 		AE76F9D1172C37FE000DA0A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AEE7E006172D6D6800B421C6 /* TimeTableSqliteDB.h */,
+				AEE7E007172D6D6800B421C6 /* TimeTableSqliteDB.m */,
+				AEAB51C1172EBE9400BC6A84 /* Course.h */,
+				AEAB51C2172EBE9400BC6A84 /* Course.m */,
+				AEAB51C9172EC95B00BC6A84 /* Professor.h */,
+				AEAB51CA172EC95B00BC6A84 /* Professor.m */,
+				AEEC8F32172ED36E004EE343 /* Subject.h */,
+				AEEC8F33172ED36E004EE343 /* Subject.m */,
+				AEEC8F35172ED79F004EE343 /* SubjectTimeMap.h */,
+				AEEC8F36172ED79F004EE343 /* SubjectTimeMap.m */,
+				AEEC8F38172EEB29004EE343 /* TimeTableModel.h */,
+				AEEC8F39172EEB29004EE343 /* TimeTableModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		AEE7E00D172D75D200B421C6 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				AEE7E00A172D75CE00B421C6 /* TimeTableNotificationUtil.h */,
+				AEE7E00B172D75CE00B421C6 /* TimeTableNotificationUtil.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +260,7 @@
 				AE76F9B1172C36C0000DA0A1 /* Default@2x.png in Resources */,
 				AE76F9B3172C36C0000DA0A1 /* Default-568h@2x.png in Resources */,
 				AE76F9B6172C36C0000DA0A1 /* MainStoryboard.storyboard in Resources */,
+				AEAB51C8172EC82C00BC6A84 /* timetable.db3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +279,14 @@
 				AE265917172C3A51001381DB /* FMDatabasePool.m in Sources */,
 				AE265918172C3A51001381DB /* FMDatabaseQueue.m in Sources */,
 				AE265919172C3A51001381DB /* FMResultSet.m in Sources */,
+				AEE7E008172D6D6800B421C6 /* TimeTableSqliteDB.m in Sources */,
+				AEE7E00C172D75CE00B421C6 /* TimeTableNotificationUtil.m in Sources */,
+				AEE7E010172D773E00B421C6 /* TimeTableListViewController.m in Sources */,
+				AEAB51C3172EBE9400BC6A84 /* Course.m in Sources */,
+				AEAB51CB172EC95B00BC6A84 /* Professor.m in Sources */,
+				AEEC8F34172ED36E004EE343 /* Subject.m in Sources */,
+				AEEC8F37172ED79F004EE343 /* SubjectTimeMap.m in Sources */,
+				AEEC8F3A172EEB29004EE343 /* TimeTableModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
