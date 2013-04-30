@@ -27,7 +27,7 @@
 + (NSString *) getDatabaseFilePath;
 + (NSString *) applicationDocumentsDirectory;
 + (NSDate *)getDateFromString:(NSString *)dateString;
-+ (id)databaseQuery:(id)model sql:(NSString *)sql firstObject:(id)firstObject, ... ;
-+ (NSMutableArray *)databaseQueryList:(id)model sql:(NSString *)sql firstObject:(id)firstObject, ... ;
-+ (NSUInteger)databaseQueryCount:(NSString *)sql firstObject:(id)firstObject, ... ;
++ (id)databaseQuery:(id (^)(FMResultSet *rs))block sql:(NSString *)sql args:(NSArray *)args;
++ (NSMutableArray *)databaseQueryList:(id (^)(FMResultSet *rs))block sql:(NSString *)sql args:(NSArray *)args;
++ (NSUInteger)databaseQueryCount:(NSString *)sql args:(NSArray *)args;
 @end

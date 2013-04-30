@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimeTableListViewController : UIViewController
+@interface TimeTableListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end

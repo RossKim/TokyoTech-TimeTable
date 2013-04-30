@@ -33,7 +33,12 @@
 }
 
 + (TimeTableModel *)findById:(NSUInteger)timeTableId {
-    return [TimeTableSqliteDB databaseQuery:[self class] sql:@"select * from timetable where timetable_id=?" firstObject:[NSNumber numberWithInt:timeTableId], nil];
+    NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:timeTableId], nil];
+    return [TimeTableSqliteDB databaseQuery:^id(FMResultSet *rs) {
+        return [self createModel:rs];
+    }
+                                        sql:@"select * from timetable where timetable_id=?"
+                                       args:args];
 }
 
 - (Subject *)getSubject {

@@ -74,29 +74,14 @@
     return [dateFormat dateFromString:dateString];
 }
 
-+ (id)databaseQuery:(id)model sql:(NSString *)sql firstObject:(id)firstObject, ... {
-    va_list args;
-    va_start(args, firstObject);
-    __block NSArray *argsArray = [self getArrayByVaList:firstObject args:args];
-    va_end(args);
-    __block id modelClass = model;
++ (id)databaseQuery:(id (^)(FMResultSet *rs))block sql:(NSString *)sql args:(NSArray *)args{
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[TimeTableSqliteDB getDatabaseFilePath]];
     __block id map = nil;
     if(queue) {
         [queue inDatabase:^(FMDatabase *db) {
-            FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:argsArray];
+            FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:args];
             if([rs next]) {
-                if([modelClass isEqual:[Course class]]) {
-                    map = [Course createModel:rs];
-                } else if([modelClass isEqual:[Subject class]]) {
-                    map = [Subject createModel:rs];
-                } else if([modelClass isEqual:[Professor class]]) {
-                    map = [Professor createModel:rs];
-                } else if([modelClass isEqual:[SubjectTimeMap class]]) {
-                    map = [SubjectTimeMap createModel:rs];
-                } else if([modelClass isEqual:[TimeTableModel class]]) {
-                    map = [TimeTableModel createModel:rs];
-                }
+                map = block(rs);
             }
             [rs close];
         }];
@@ -105,29 +90,14 @@
     return map;
 }
 
-+ (NSMutableArray *)databaseQueryList:(id)model sql:(NSString *)sql firstObject:(id)firstObject, ... {
-    va_list args;
-    va_start(args, firstObject);
-    __block NSArray *argsArray = [self getArrayByVaList:firstObject args:args];
-    va_end(args);
-    __block id modelClass = model;
++ (NSMutableArray *)databaseQueryList:(id (^)(FMResultSet *rs))block sql:(NSString *)sql args:(NSArray *)args{
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[TimeTableSqliteDB getDatabaseFilePath]];
     __block NSMutableArray *list = [[NSMutableArray alloc] init];
     if(queue) {
         [queue inDatabase:^(FMDatabase *db) {
-            FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:argsArray];
+            FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:args];
             while([rs next]) {
-                if([modelClass isEqual:[Course class]]) {
-                    [list addObject:[Course createModel:rs]];
-                } else if([modelClass isEqual:[Subject class]]) {
-                    [list addObject:[Subject createModel:rs]];
-                } else if([modelClass isEqual:[Professor class]]) {
-                    [list addObject:[Professor createModel:rs]];
-                } else if([modelClass isEqual:[SubjectTimeMap class]]) {
-                    [list addObject:[SubjectTimeMap createModel:rs]];
-                } else if([modelClass isEqual:[TimeTableModel class]]) {
-                    [list addObject:[TimeTableModel createModel:rs]];
-                }
+                [list addObject:block(rs)];
             }
             [rs close];
         }];
@@ -136,16 +106,12 @@
     return list;
 }
 
-+ (NSUInteger)databaseQueryCount:(NSString *)sql firstObject:(id)firstObject, ... {
-    va_list args;
-    va_start(args, firstObject);
-    __block NSArray *argsArray = [self getArrayByVaList:firstObject args:args];
-    va_end(args);
++ (NSUInteger)databaseQueryCount:(NSString *)sql args:(NSArray *)args{
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[TimeTableSqliteDB getDatabaseFilePath]];
     __block NSUInteger count = 0;
     if(queue) {
         [queue inDatabase:^(FMDatabase *db) {
-            FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:argsArray];
+            FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:args];
             if([rs next]) {
                 count = [rs intForColumnIndex:0];
             }
@@ -156,15 +122,4 @@
     return count;
 }
 
-+ (NSArray *)getArrayByVaList:(id)firstObject args:(va_list)args {
-    __block NSMutableArray *argsArray = [[NSMutableArray alloc] init];
-    if(firstObject) {
-        [argsArray addObject:firstObject];
-        id eachObject;
-        while((eachObject = va_arg(args, id))) {
-            [argsArray addObject:eachObject];
-        }
-    }
-    return argsArray;
-}
 @end

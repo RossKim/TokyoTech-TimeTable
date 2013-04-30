@@ -22,5 +22,7 @@
 + (Course *)findById:(NSUInteger)courseId;
 + (NSUInteger)getCourseCount;
 + (Course *)createModel:(FMResultSet *)rs;
++ (NSMutableArray *)getCourseListWithClassNum:(NSUInteger)classNum;
++ (NSUInteger)getCourseCountWithClassNum:(NSUInteger)classNum;
 
 @end

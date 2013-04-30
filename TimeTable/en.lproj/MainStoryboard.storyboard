@@ -38,11 +38,11 @@
             </objects>
             <point key="canvasLocation" x="47" y="-506"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - List-->
         <scene sceneID="fSt-WS-rwP">
             <objects>
                 <navigationController definesPresentationContext="YES" id="nw4-RD-XOS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="fG9-IG-5hx"/>
+                    <tabBarItem key="tabBarItem" title="List" id="fG9-IG-5hx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3dn-IE-HCQ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -54,16 +54,31 @@
             </objects>
             <point key="canvasLocation" x="47" y="157"/>
         </scene>
-        <!--Time Table List View Controller-->
+        <!--Time Table List View Controller - 学科リスト-->
         <scene sceneID="O38-lE-6kK">
             <objects>
                 <viewController id="9N2-98-Apz" customClass="TimeTableListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MNo-3A-nLS">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Kf-Xk-GHD">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Kf-Xk-GHD" firstAttribute="top" secondItem="MNo-3A-nLS" secondAttribute="top" type="default" id="Eee-A7-0ld"/>
+                            <constraint firstItem="6Kf-Xk-GHD" firstAttribute="bottom" secondItem="MNo-3A-nLS" secondAttribute="bottom" type="default" id="QC8-TL-Tq9"/>
+                            <constraint firstItem="6Kf-Xk-GHD" firstAttribute="leading" secondItem="MNo-3A-nLS" secondAttribute="leading" type="default" id="RCv-RL-LjA"/>
+                            <constraint firstItem="6Kf-Xk-GHD" firstAttribute="trailing" secondItem="MNo-3A-nLS" secondAttribute="trailing" type="default" id="xPT-8j-z2J"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hVe-EH-Y5G"/>
+                    <navigationItem key="navigationItem" title="学科リスト" id="hVe-EH-Y5G"/>
+                    <connections>
+                        <outlet property="navigationItem" destination="hVe-EH-Y5G" id="cmv-4U-Gen"/>
+                        <outlet property="tableView" destination="6Kf-Xk-GHD" id="P5f-wf-Co2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Km1-Jl-ofg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,8 +86,14 @@
         </scene>
     </scenes>
     <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
         <class className="TimeTableListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimeTableListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="TimeTableViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimeTableViewController.h"/>

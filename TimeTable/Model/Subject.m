@@ -39,9 +39,12 @@
 }
 
 + (Subject *)findById:(NSUInteger)subjectId {
-    return [TimeTableSqliteDB databaseQuery:[self class]
+    NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:subjectId], nil];
+    return [TimeTableSqliteDB databaseQuery:^id(FMResultSet *rs) {
+        return [self createModel:rs];
+    }
                                         sql:@"select * from subject where subject_id= ?"
-                                firstObject:[NSNumber numberWithInt:subjectId], nil];
+                                       args:args];
 }
 
 + (Subject *)createModel:(FMResultSet *)rs {
@@ -66,15 +69,19 @@
 
 + (NSMutableArray *)getSubjectListWithSemester:(NSUInteger)semester
                                       courseId:(NSUInteger)courseId  {
-    return [TimeTableSqliteDB databaseQueryList:[self class]
+    NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:semester], [NSNumber numberWithInt:courseId], nil];
+    return [TimeTableSqliteDB databaseQueryList:^id(FMResultSet *rs) {
+        return [self createModel:rs];
+    }
                                             sql:@"select * from subject where semester = ? and course_id = ?"
-                                    firstObject:[NSNumber numberWithInt:semester], [NSNumber numberWithInt:courseId], nil];
+                                           args:args];
 }
 
 + (NSUInteger)getSubjectCountWithSemester:(NSUInteger)semester
                                  courseId:(NSUInteger)courseId {
+    NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:semester], [NSNumber numberWithInt:courseId], nil];
     return [TimeTableSqliteDB databaseQueryCount:@"select count(subject_id) from subject where semester = ? and course_id = ?"
-                                     firstObject:[NSNumber numberWithInt:semester], [NSNumber numberWithInt:courseId], nil];
+                                            args:args];
 }
 
 @end

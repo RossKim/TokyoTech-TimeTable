@@ -35,9 +35,12 @@
 }
 
 + (SubjectTimeMap *)findById:(NSUInteger)subjectTimeMapId {
-    return [TimeTableSqliteDB databaseQuery:[self class]
+    NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:subjectTimeMapId], nil];
+    return [TimeTableSqliteDB databaseQuery:^id(FMResultSet *rs) {
+        return [self createModel:rs];
+    }
                                         sql:@"select * from subject_time_map where subject_time_map_id=?"
-                                firstObject:[NSNumber numberWithInt:subjectTimeMapId], nil];
+                                       args:args];
 }
 
 + (SubjectTimeMap *)createModel:(FMResultSet *)rs {
@@ -55,9 +58,12 @@
 }
 
 + (NSMutableArray *)getSubjectTimeMapList:(NSUInteger)subjectId {
-    return [TimeTableSqliteDB databaseQueryList:[self class]
+    NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:subjectId], nil];
+    return [TimeTableSqliteDB databaseQueryList:^id(FMResultSet *rs) {
+        return [self createModel:rs];
+    }
                                             sql:@"select * from subject_time_map where subject_id = ?"
-                                    firstObject:[NSNumber numberWithInt:subjectId], nil];
+                                           args:args];
 }
 
 

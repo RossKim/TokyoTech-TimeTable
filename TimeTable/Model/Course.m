@@ -34,13 +34,31 @@
 }
 
 + (Course *)findById:(NSUInteger)courseId {
-    return [TimeTableSqliteDB databaseQuery:[self class]
+    NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:courseId], nil];
+    return [TimeTableSqliteDB databaseQuery:^id(FMResultSet *rs) {
+        return [self createModel:rs];
+    }
                                         sql:@"select * from course where course_id = ?"
-                                firstObject:[NSNumber numberWithInt:courseId], nil];
+                                       args:args];
 }
 
 + (NSUInteger)getCourseCount {
-    return [TimeTableSqliteDB databaseQueryCount:@"select count(course_id) from course" firstObject:nil, nil];
+    return [TimeTableSqliteDB databaseQueryCount:@"select count(course_id) from course" args:nil];
+}
+
++ (NSMutableArray *)getCourseListWithClassNum:(NSUInteger)classNum {
+    NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:classNum], nil];
+    return [TimeTableSqliteDB databaseQueryList:^id(FMResultSet *rs) {
+        return [self createModel:rs];
+    }
+                                        sql:@"select * from course where class=?"
+                                       args:args];
+}
+
++ (NSUInteger)getCourseCountWithClassNum:(NSUInteger)classNum {
+    NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:classNum], nil];
+    return [TimeTableSqliteDB databaseQueryCount:@"select count(*) from course where class=?"
+                                            args:args];
 }
 
 @end

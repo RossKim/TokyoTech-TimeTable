@@ -39,9 +39,12 @@
 }
 
 + (Professor *)findById:(NSUInteger)professorId {
-    return [TimeTableSqliteDB databaseQuery:[self class]
+    NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:professorId],nil];
+    return [TimeTableSqliteDB databaseQuery:^id(FMResultSet *rs) {
+        return [self createModel:rs];
+    }
                                         sql:@"select * from professor where professor_id = ?"
-                                firstObject:[NSNumber numberWithInt:professorId], nil];
+                                       args:args];
 }
 
 + (Professor *)createModel:(FMResultSet *)rs {
