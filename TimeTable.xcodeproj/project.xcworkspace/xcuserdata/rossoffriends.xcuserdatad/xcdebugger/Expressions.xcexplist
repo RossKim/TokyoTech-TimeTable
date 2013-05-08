@@ -12,6 +12,14 @@
          contextName = "-[Professor initWithData:]:Professor.m">
       </ContextState>
       <ContextState
+         contextName = "-[TimeTableListViewController prepareForSegue:sender:]:TimeTableListViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[segue identifier]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "+[Professor createModel:]:Professor.m">
       </ContextState>
    </ContextStates>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE1B0BF01735075D009BD2AD /* TimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1B0BEF1735075D009BD2AD /* TimeTableViewController.m */; };
+		AE1B0BF41735133A009BD2AD /* timetable.db3 in Resources */ = {isa = PBXBuildFile; fileRef = AE1B0BF31735133A009BD2AD /* timetable.db3 */; };
 		AE265915172C3A51001381DB /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AE26590C172C3A51001381DB /* FMDatabase.m */; };
 		AE265916172C3A51001381DB /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AE26590E172C3A51001381DB /* FMDatabaseAdditions.m */; };
 		AE265917172C3A51001381DB /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE265910172C3A51001381DB /* FMDatabasePool.m */; };
@@ -22,10 +24,11 @@
 		AE76F9B1172C36C0000DA0A1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE76F9B0172C36C0000DA0A1 /* Default@2x.png */; };
 		AE76F9B3172C36C0000DA0A1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE76F9B2172C36C0000DA0A1 /* Default-568h@2x.png */; };
 		AE76F9B6172C36C0000DA0A1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE76F9B4172C36C0000DA0A1 /* MainStoryboard.storyboard */; };
-		AE76F9B9172C36C0000DA0A1 /* TimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE76F9B8172C36C0000DA0A1 /* TimeTableViewController.m */; };
 		AE76F9C0172C3766000DA0A1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE76F9BF172C3766000DA0A1 /* libsqlite3.dylib */; };
+		AE995B5D1732BD98004C5B9B /* TimeTableSubjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE995B5C1732BD98004C5B9B /* TimeTableSubjectDetailViewController.m */; };
+		AE995B601732BEEC004C5B9B /* TimeTableSubjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE995B5F1732BEEC004C5B9B /* TimeTableSubjectListViewController.m */; };
+		AE995B631732C0BB004C5B9B /* ListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE995B621732C0BB004C5B9B /* ListViewModel.m */; };
 		AEAB51C3172EBE9400BC6A84 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB51C2172EBE9400BC6A84 /* Course.m */; };
-		AEAB51C8172EC82C00BC6A84 /* timetable.db3 in Resources */ = {isa = PBXBuildFile; fileRef = AEAB51C7172EC82C00BC6A84 /* timetable.db3 */; };
 		AEAB51CB172EC95B00BC6A84 /* Professor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB51CA172EC95B00BC6A84 /* Professor.m */; };
 		AEE7E008172D6D6800B421C6 /* TimeTableSqliteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE7E007172D6D6800B421C6 /* TimeTableSqliteDB.m */; };
 		AEE7E00C172D75CE00B421C6 /* TimeTableNotificationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE7E00B172D75CE00B421C6 /* TimeTableNotificationUtil.m */; };
@@ -36,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE1B0BEE1735075D009BD2AD /* TimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableViewController.h; sourceTree = "<group>"; };
+		AE1B0BEF1735075D009BD2AD /* TimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableViewController.m; sourceTree = "<group>"; };
+		AE1B0BF31735133A009BD2AD /* timetable.db3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = timetable.db3; sourceTree = "<group>"; };
 		AE26590B172C3A51001381DB /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = FMDatabase/FMDatabase.h; sourceTree = "<group>"; };
 		AE26590C172C3A51001381DB /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = FMDatabase/FMDatabase.m; sourceTree = "<group>"; };
 		AE26590D172C3A51001381DB /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = FMDatabase/FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -60,12 +66,15 @@
 		AE76F9B0172C36C0000DA0A1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AE76F9B2172C36C0000DA0A1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AE76F9B5172C36C0000DA0A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		AE76F9B7172C36C0000DA0A1 /* TimeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeTableViewController.h; sourceTree = "<group>"; };
-		AE76F9B8172C36C0000DA0A1 /* TimeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeTableViewController.m; sourceTree = "<group>"; };
 		AE76F9BF172C3766000DA0A1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AE995B5B1732BD98004C5B9B /* TimeTableSubjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableSubjectDetailViewController.h; sourceTree = "<group>"; };
+		AE995B5C1732BD98004C5B9B /* TimeTableSubjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableSubjectDetailViewController.m; sourceTree = "<group>"; };
+		AE995B5E1732BEEC004C5B9B /* TimeTableSubjectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableSubjectListViewController.h; sourceTree = "<group>"; };
+		AE995B5F1732BEEC004C5B9B /* TimeTableSubjectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableSubjectListViewController.m; sourceTree = "<group>"; };
+		AE995B611732C0BB004C5B9B /* ListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewModel.h; path = Model/ListViewModel.h; sourceTree = "<group>"; };
+		AE995B621732C0BB004C5B9B /* ListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewModel.m; path = Model/ListViewModel.m; sourceTree = "<group>"; };
 		AEAB51C1172EBE9400BC6A84 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = Model/Course.h; sourceTree = "<group>"; };
 		AEAB51C2172EBE9400BC6A84 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Model/Course.m; sourceTree = "<group>"; };
-		AEAB51C7172EC82C00BC6A84 /* timetable.db3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = timetable.db3; sourceTree = "<group>"; };
 		AEAB51C9172EC95B00BC6A84 /* Professor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Professor.h; path = Model/Professor.h; sourceTree = "<group>"; };
 		AEAB51CA172EC95B00BC6A84 /* Professor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Professor.m; path = Model/Professor.m; sourceTree = "<group>"; };
 		AEE7E006172D6D6800B421C6 /* TimeTableSqliteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeTableSqliteDB.h; path = Model/TimeTableSqliteDB.h; sourceTree = "<group>"; };
@@ -128,15 +137,19 @@
 		AE76F9A2172C36C0000DA0A1 /* TimeTable */ = {
 			isa = PBXGroup;
 			children = (
-				AEAB51C7172EC82C00BC6A84 /* timetable.db3 */,
+				AE1B0BF31735133A009BD2AD /* timetable.db3 */,
 				AE76F9D1172C37FE000DA0A1 /* Model */,
 				AE76F9B4172C36C0000DA0A1 /* MainStoryboard.storyboard */,
-				AE76F9B7172C36C0000DA0A1 /* TimeTableViewController.h */,
-				AE76F9B8172C36C0000DA0A1 /* TimeTableViewController.m */,
 				AEE7E00D172D75D200B421C6 /* Util */,
 				AE76F9A3172C36C0000DA0A1 /* Supporting Files */,
 				AEE7E00E172D773E00B421C6 /* TimeTableListViewController.h */,
 				AEE7E00F172D773E00B421C6 /* TimeTableListViewController.m */,
+				AE995B5E1732BEEC004C5B9B /* TimeTableSubjectListViewController.h */,
+				AE995B5F1732BEEC004C5B9B /* TimeTableSubjectListViewController.m */,
+				AE995B5B1732BD98004C5B9B /* TimeTableSubjectDetailViewController.h */,
+				AE995B5C1732BD98004C5B9B /* TimeTableSubjectDetailViewController.m */,
+				AE1B0BEE1735075D009BD2AD /* TimeTableViewController.h */,
+				AE1B0BEF1735075D009BD2AD /* TimeTableViewController.m */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -190,6 +203,8 @@
 				AEEC8F36172ED79F004EE343 /* SubjectTimeMap.m */,
 				AEEC8F38172EEB29004EE343 /* TimeTableModel.h */,
 				AEEC8F39172EEB29004EE343 /* TimeTableModel.m */,
+				AE995B611732C0BB004C5B9B /* ListViewModel.h */,
+				AE995B621732C0BB004C5B9B /* ListViewModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -260,7 +275,7 @@
 				AE76F9B1172C36C0000DA0A1 /* Default@2x.png in Resources */,
 				AE76F9B3172C36C0000DA0A1 /* Default-568h@2x.png in Resources */,
 				AE76F9B6172C36C0000DA0A1 /* MainStoryboard.storyboard in Resources */,
-				AEAB51C8172EC82C00BC6A84 /* timetable.db3 in Resources */,
+				AE1B0BF41735133A009BD2AD /* timetable.db3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +288,6 @@
 			files = (
 				AE76F9A9172C36C0000DA0A1 /* main.m in Sources */,
 				AE76F9AD172C36C0000DA0A1 /* TimeTableAppDelegate.m in Sources */,
-				AE76F9B9172C36C0000DA0A1 /* TimeTableViewController.m in Sources */,
 				AE265915172C3A51001381DB /* FMDatabase.m in Sources */,
 				AE265916172C3A51001381DB /* FMDatabaseAdditions.m in Sources */,
 				AE265917172C3A51001381DB /* FMDatabasePool.m in Sources */,
@@ -287,6 +301,10 @@
 				AEEC8F34172ED36E004EE343 /* Subject.m in Sources */,
 				AEEC8F37172ED79F004EE343 /* SubjectTimeMap.m in Sources */,
 				AEEC8F3A172EEB29004EE343 /* TimeTableModel.m in Sources */,
+				AE995B5D1732BD98004C5B9B /* TimeTableSubjectDetailViewController.m in Sources */,
+				AE995B601732BEEC004C5B9B /* TimeTableSubjectListViewController.m in Sources */,
+				AE995B631732C0BB004C5B9B /* ListViewModel.m in Sources */,
+				AE1B0BF01735075D009BD2AD /* TimeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
