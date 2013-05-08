@@ -30,4 +30,7 @@
 + (id)databaseQuery:(id (^)(FMResultSet *rs))block sql:(NSString *)sql args:(NSArray *)args;
 + (NSMutableArray *)databaseQueryList:(id (^)(FMResultSet *rs))block sql:(NSString *)sql args:(NSArray *)args;
 + (NSUInteger)databaseQueryCount:(NSString *)sql args:(NSArray *)args;
++ (BOOL)databaseUpdate:(NSString *)sql args:(NSArray *)args;
++ (NSArray *)getDay;
+
 @end

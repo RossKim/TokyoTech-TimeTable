@@ -122,4 +122,22 @@
     return count;
 }
 
++ (BOOL)databaseUpdate:(NSString *)sql args:(NSArray *)args{
+    FMDatabaseQueue *queue = [[FMDatabaseQueue alloc] initWithPath:[TimeTableSqliteDB getDatabaseFilePath]];
+    __block BOOL succeed = NO;
+    if(queue) {
+        [queue inDatabase:^(FMDatabase *db) {
+            succeed =[db executeUpdate:sql withArgumentsInArray:args];
+            if(!succeed) {
+                NSLog(@"Error %d : %@",[db lastErrorCode],[db lastErrorMessage]);
+            }
+        }];
+    }
+    return succeed;
+}
+
++ (NSArray *)getDay {
+    return @[@"?",@"月",@"火",@"水",@"木",@"金",@"土",@"日"];
+}
+
 @end

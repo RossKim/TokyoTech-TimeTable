@@ -84,4 +84,51 @@
                                             args:args];
 }
 
+- (NSString *)registerSubject {
+    NSMutableArray *mapArray = [SubjectTimeMap getSubjectTimeMapList:self.subjectId];
+    for(SubjectTimeMap *map in mapArray) {
+        NSArray *args = @[[NSNumber numberWithInt:map.day],
+                          [NSNumber numberWithInt:map.startTime],
+                          [NSNumber numberWithInt:map.startTime],
+                          [NSNumber numberWithInt:map.endTime],
+                          [NSNumber numberWithInt:map.endTime]];
+        NSUInteger count = [TimeTableSqliteDB databaseQueryCount:@"select count(timetable_id) from timetable where day=? or (start_time <= ? and end_time >= ?) or (start_time <= ? and end_time >= ?" args:args];
+        if(count) {
+            return @"Duplicate";
+        }
+    }
+    for(SubjectTimeMap *map in mapArray) {
+        NSArray *args = @[[NSNumber numberWithInt:self.subjectId],
+                          [NSNumber numberWithInt:map.day],
+                          [NSNumber numberWithInt:map.startTime],
+                          [NSNumber numberWithInt:map.endTime]];
+        BOOL succeed = [TimeTableSqliteDB databaseUpdate:@"insert into timetable (subject_id, day, start_time, end_time, update_date) values (?,?,?,?,julianday('now'))" args:args];
+        if(!succeed) {
+            return @"Error";
+        }
+    }
+    return @"Success";
+}
+
+- (BOOL)unregisterSubject {
+    NSArray *args = @[[NSNumber numberWithInt:self.subjectId]];
+    return [TimeTableSqliteDB databaseUpdate:@"delete from timetable where subject_id = ?" args:args];
+}
+
+- (NSString *)getTimeString {
+    NSArray *day = [TimeTableSqliteDB getDay];
+    NSString *timeString = @"";
+    NSMutableArray *mapArray = [SubjectTimeMap getSubjectTimeMapList:self.subjectId];
+    if([mapArray count]) {
+        for(SubjectTimeMap *map in mapArray) {
+            if(map.startTime == map.endTime) {
+                timeString = [timeString stringByAppendingFormat:@"%@曜日 %d限\n",day[map.day],map.startTime];
+            } else {
+                timeString = [timeString stringByAppendingFormat:@"%@曜日 %d~%d限\n",day[map.day],map.startTime,map.endTime];
+            }
+        }
+    }
+    return timeString;
+}
+
 @end

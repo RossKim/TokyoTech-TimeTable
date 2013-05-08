@@ -13,7 +13,8 @@
 @property (readwrite, nonatomic) NSUInteger subjectTimeMapId;
 @property (readwrite, nonatomic) NSUInteger subjectId;
 @property (readwrite, nonatomic) NSUInteger day;
-@property (readwrite, nonatomic) NSUInteger time;
+@property (readwrite, nonatomic) NSUInteger startTime;
+@property (readwrite, nonatomic) NSUInteger endTime;
 @property (readwrite, nonatomic) BOOL practice;
 @property (readwrite, nonatomic, retain) NSDate *updateDate;
 
@@ -27,7 +28,8 @@
         _subjectTimeMapId = [data[SUBJECT_TIME_MAP_ID] intValue];
         _subjectId = [data[SUBJECT_ID] intValue];
         _day = [data[DAY] intValue];
-        _time = [data[TIME] intValue];
+        _startTime = [data[START_TIME] intValue];
+        _endTime = [data[END_TIME] intValue];
         _practice = [data[PRACTICE] boolValue];
         _updateDate = data[UPDATE_DATE];
     }
@@ -47,7 +49,8 @@
     NSDictionary *data = @{SUBJECT_TIME_MAP_ID:[rs stringForColumn:SUBJECT_TIME_MAP_ID],
                            SUBJECT_ID:[rs stringForColumn:SUBJECT_ID],
                            DAY:[rs stringForColumn:DAY],
-                           TIME:[rs stringForColumn:TIME],
+                           START_TIME:[rs stringForColumn:START_TIME],
+                           END_TIME:[rs stringForColumn:END_TIME],
                            PRACTICE:[NSNumber numberWithBool:[rs boolForColumn:PRACTICE]],
                            UPDATE_DATE:[rs dateForColumn:UPDATE_DATE]};
     return [[SubjectTimeMap alloc] initWithData:data];
@@ -65,6 +68,4 @@
                                             sql:@"select * from subject_time_map where subject_id = ?"
                                            args:args];
 }
-
-
 @end

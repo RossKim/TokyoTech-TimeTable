@@ -38,5 +38,7 @@
 + (Subject *)createModel:(FMResultSet *)rs;
 + (NSMutableArray *)getSubjectListWithSemester:(NSUInteger)semester courseId:(NSUInteger)courseId;
 + (NSUInteger)getSubjectCountWithSemester:(NSUInteger)semester courseId:(NSUInteger)courseId;
-
+- (NSString *)registerSubject;
+- (NSString *)getTimeString;
+- (BOOL)unregisterSubject;
 @end

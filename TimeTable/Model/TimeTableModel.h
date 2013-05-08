@@ -15,18 +15,23 @@
 
 #define TIMETABLE_ID @"timetable_id"
 #define SUBJECT_ID @"subject_id"
-#define DAY @"day"
-#define TIME @"time"
+#define START_TIME @"start_time"
+#define END_TIME @"end_time"
 #define UPDATE_DATE @"update_date"
 
 @property (readonly, nonatomic) NSUInteger timeTableId;
 @property (readonly, nonatomic) NSUInteger subjectId;
 @property (readonly, nonatomic) NSUInteger day;
-@property (readonly, nonatomic) NSUInteger time;
+@property (readonly, nonatomic) NSUInteger startTime;
+@property (readonly, nonatomic) NSUInteger endTime;
 @property (readonly, nonatomic, retain) NSDate *updateDate;
 
 + (TimeTableModel *)findById:(NSUInteger)timeTableId;
 - (Subject *)getSubject;
 + (TimeTableModel *)createModel:(FMResultSet *)rs;
++ (TimeTableModel *)findBySubjectId:(NSUInteger)subjectId;
++ (BOOL)isSubjectRegistered:(NSUInteger)subjectId;
++ (NSUInteger)getRegisteredSubjectCountWithDay:(NSUInteger)day;
++ (NSMutableArray *)getRegisteredSubjectArrayWithDay:(NSUInteger)day;
 
 @end

@@ -1,25 +1,26 @@
 //
-//  TimeTableListViewController.m
+//  TimeTableSubjectListViewController.m
 //  TimeTable
 //
-//  Created by Kim Minsu on 2013/04/29.
+//  Created by Kim Minsu on 2013/05/03.
 //  Copyright (c) 2013年 Kim Minsu. All rights reserved.
 //
 
-#import "TimeTableListViewController.h"
-#import "ListViewModel.h"
 #import "TimeTableSubjectListViewController.h"
+#import "TimeTableSubjectDetailViewController.h"
+#import "ListViewModel.h"
 
-@interface TimeTableListViewController ()
+@interface TimeTableSubjectListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) ListViewModel *viewModel;
 @end
 
-@implementation TimeTableListViewController
+@implementation TimeTableSubjectListViewController
 
 - (ListViewModel *)viewModel{
     if(!_viewModel) {
-        _viewModel = [[ListViewModel alloc] initWithMode:[Course class] selectedCourseId:0];
+        _viewModel = [[ListViewModel alloc] initWithMode:[Subject class]
+                                        selectedCourseId:self.selectedCourseId];
     }
     return _viewModel;
 }
@@ -49,27 +50,26 @@
     }
     
     id contents = [self.viewModel cellContentsForRowAtIndexPath:indexPath];
-    if([contents isKindOfClass:[Course class]]) {
-        Course *course = (Course *)contents;
-        cell.textLabel.text = course.name;
+    if([contents isKindOfClass:[Subject class]]) {
+        Subject *subject = (Subject *)contents;
+        cell.textLabel.text = subject.name;
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([[segue identifier] isEqualToString:@"ShowSubjectList"]) {
-        TimeTableSubjectListViewController *subjectListViewController = [segue destinationViewController];
-    
+    if([[segue identifier] isEqualToString:@"ShowSubjectDetail"]) {
+        TimeTableSubjectDetailViewController *subjectDetailViewController = [segue destinationViewController];
+        
         NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
         id contents = [self.viewModel cellContentsForRowAtIndexPath:myIndexPath];
-        if([contents isKindOfClass:[Course class]]) {
-            Course *course = (Course *)contents;
-            subjectListViewController.selectedCourseId = course.courseId;
+        if([contents isKindOfClass:[Subject class]]) {
+            Subject *subject = (Subject *)contents;
+            subjectDetailViewController.selectedSubject = subject;
         }
         [self.tableView deselectRowAtIndexPath:myIndexPath animated:NO];
     }
 }
-
 
 @end
