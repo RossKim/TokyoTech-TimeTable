@@ -28,6 +28,11 @@
 
 @implementation TimeTableSubjectDetailViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateUI];
+}
+
 - (void)updateUI {
     self.nameTextView.text = self.selectedSubject.name;
     self.courseLabel.text = [self.selectedSubject getCourse].name;
