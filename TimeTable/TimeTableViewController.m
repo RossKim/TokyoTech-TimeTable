@@ -10,10 +10,11 @@
 #import "TimeTableSqliteDB.h"
 #import "TimeTableSubjectDetailViewController.h"
 #import "TimeTableNotificationUtil.h"
+#import "TimeTableModelView.h"
 
 @interface TimeTableViewController ()
 #define TIMETABLE_CELL @"TimeTableCell"
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation TimeTableViewController
@@ -113,6 +114,29 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"解除";
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+        TimeTableModelView *view = [[TimeTableModelView alloc] init];
+        for(int i=1;i<=100;i++) {
+            TimeTableModel *model = [TimeTableModel findById:i];
+            if(model) {
+                view.model = model;
+                break;
+            }
+        }
+        self.view = view;
+    } else {
+        self.view = self.tableView;
+    }
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if(fromInterfaceOrientation == UIInterfaceOrientationLandscapeRight || fromInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+        [self.tableView setNeedsDisplay];
+    } else {
+    }
 }
 
 @end
