@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TimeTableSqliteDB.h"
 
-@interface Course : NSObject
+@interface Course : NSObject <SqliteModel>
 
 #define COURSE_ID @"course_id"
 #define NAME @"name"
@@ -21,7 +21,6 @@
 
 + (Course *)findById:(NSUInteger)courseId;
 + (NSUInteger)getCourseCount;
-+ (Course *)createModel:(FMResultSet *)rs;
 + (NSMutableArray *)getCourseListWithClassNum:(NSUInteger)classNum;
 + (NSUInteger)getCourseCountWithClassNum:(NSUInteger)classNum;
 

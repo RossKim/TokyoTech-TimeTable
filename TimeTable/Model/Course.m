@@ -26,7 +26,7 @@
     return self;
 }
 
-+ (Course *)createModel:(FMResultSet *)rs {
+- (id)createModel:(FMResultSet *)rs {
     NSDictionary *data = @{COURSE_ID:[rs stringForColumn:COURSE_ID],
                            NAME:[rs stringForColumn:NAME],
                            CLASS_NUM:[rs stringForColumn:CLASS_NUM]};
@@ -34,10 +34,9 @@
 }
 
 + (Course *)findById:(NSUInteger)courseId {
+
     NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:courseId], nil];
-    return [TimeTableSqliteDB databaseQuery:^id(FMResultSet *rs) {
-        return [self createModel:rs];
-    }
+    return [TimeTableSqliteDB databaseQuery:(id<SqliteModel>)self
                                         sql:@"select * from course where course_id = ?"
                                        args:args];
 }
@@ -48,9 +47,7 @@
 
 + (NSMutableArray *)getCourseListWithClassNum:(NSUInteger)classNum {
     NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:classNum], nil];
-    return [TimeTableSqliteDB databaseQueryList:^id(FMResultSet *rs) {
-        return [self createModel:rs];
-    }
+    return [TimeTableSqliteDB databaseQueryList:(id<SqliteModel>)self
                                         sql:@"select * from course where class=?"
                                        args:args];
 }

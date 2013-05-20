@@ -11,7 +11,7 @@
 
 @class Subject;
 
-@interface TimeTableModel : NSObject
+@interface TimeTableModel : NSObject <SqliteModel>
 
 #define TIMETABLE_ID @"timetable_id"
 #define SUBJECT_ID @"subject_id"
@@ -28,7 +28,6 @@
 
 + (TimeTableModel *)findById:(NSUInteger)timeTableId;
 - (Subject *)getSubject;
-+ (TimeTableModel *)createModel:(FMResultSet *)rs;
 + (TimeTableModel *)findBySubjectId:(NSUInteger)subjectId;
 + (BOOL)isSubjectRegistered:(NSUInteger)subjectId;
 + (NSUInteger)getRegisteredSubjectCountWithDay:(NSUInteger)day;

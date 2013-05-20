@@ -11,7 +11,7 @@
 
 @class Subject;
 
-@interface SubjectTimeMap : NSObject
+@interface SubjectTimeMap : NSObject<SqliteModel>
 
 #define SUBJECT_TIME_MAP_ID @"subject_time_map_id"
 #define SUBJECT_ID @"subject_id"
@@ -32,6 +32,5 @@
 + (SubjectTimeMap *)findById:(NSUInteger)subjectTimeMapId;
 - (Subject *)getSubject;
 + (NSMutableArray *)getSubjectTimeMapList:(NSUInteger)subjectId;
-+ (SubjectTimeMap *)createModel:(FMResultSet *)rs;
 - (id)initWithData:(NSDictionary *)data;
 @end

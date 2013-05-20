@@ -74,14 +74,14 @@
     return [dateFormat dateFromString:dateString];
 }
 
-+ (id)databaseQuery:(id (^)(FMResultSet *rs))block sql:(NSString *)sql args:(NSArray *)args{
++ (id)databaseQuery:(id<SqliteModel>)model sql:(NSString *)sql args:(NSArray *)args{
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[TimeTableSqliteDB getDatabaseFilePath]];
     __block id map = nil;
     if(queue) {
         [queue inDatabase:^(FMDatabase *db) {
             FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:args];
             if([rs next]) {
-                map = block(rs);
+                map = [model createModel:rs];
             }
             [rs close];
         }];
@@ -90,14 +90,14 @@
     return map;
 }
 
-+ (NSMutableArray *)databaseQueryList:(id (^)(FMResultSet *rs))block sql:(NSString *)sql args:(NSArray *)args{
++ (NSMutableArray *)databaseQueryList:(id<SqliteModel>)model sql:(NSString *)sql args:(NSArray *)args{
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[TimeTableSqliteDB getDatabaseFilePath]];
     __block NSMutableArray *list = [[NSMutableArray alloc] init];
     if(queue) {
         [queue inDatabase:^(FMDatabase *db) {
             FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:args];
             while([rs next]) {
-                [list addObject:block(rs)];
+                [list addObject:[model createModel:rs]];
             }
             [rs close];
         }];

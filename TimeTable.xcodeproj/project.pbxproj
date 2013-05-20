@@ -30,6 +30,8 @@
 		AE995B631732C0BB004C5B9B /* ListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE995B621732C0BB004C5B9B /* ListViewModel.m */; };
 		AEAB51C3172EBE9400BC6A84 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB51C2172EBE9400BC6A84 /* Course.m */; };
 		AEAB51CB172EC95B00BC6A84 /* Professor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAB51CA172EC95B00BC6A84 /* Professor.m */; };
+		AEB817D4173BDEF9009D2EC1 /* TimeTableModelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB817D3173BDEF9009D2EC1 /* TimeTableModelView.m */; };
+		AEB817D7173BE228009D2EC1 /* TimeTableModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB817D6173BE228009D2EC1 /* TimeTableModelViewController.m */; };
 		AEE7E008172D6D6800B421C6 /* TimeTableSqliteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE7E007172D6D6800B421C6 /* TimeTableSqliteDB.m */; };
 		AEE7E00C172D75CE00B421C6 /* TimeTableNotificationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE7E00B172D75CE00B421C6 /* TimeTableNotificationUtil.m */; };
 		AEE7E010172D773E00B421C6 /* TimeTableListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE7E00F172D773E00B421C6 /* TimeTableListViewController.m */; };
@@ -77,6 +79,10 @@
 		AEAB51C2172EBE9400BC6A84 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Model/Course.m; sourceTree = "<group>"; };
 		AEAB51C9172EC95B00BC6A84 /* Professor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Professor.h; path = Model/Professor.h; sourceTree = "<group>"; };
 		AEAB51CA172EC95B00BC6A84 /* Professor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Professor.m; path = Model/Professor.m; sourceTree = "<group>"; };
+		AEB817D2173BDEF9009D2EC1 /* TimeTableModelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeTableModelView.h; path = Model/TimeTableModelView.h; sourceTree = "<group>"; };
+		AEB817D3173BDEF9009D2EC1 /* TimeTableModelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeTableModelView.m; path = Model/TimeTableModelView.m; sourceTree = "<group>"; };
+		AEB817D5173BE228009D2EC1 /* TimeTableModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableModelViewController.h; sourceTree = "<group>"; };
+		AEB817D6173BE228009D2EC1 /* TimeTableModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableModelViewController.m; sourceTree = "<group>"; };
 		AEE7E006172D6D6800B421C6 /* TimeTableSqliteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeTableSqliteDB.h; path = Model/TimeTableSqliteDB.h; sourceTree = "<group>"; };
 		AEE7E007172D6D6800B421C6 /* TimeTableSqliteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeTableSqliteDB.m; path = Model/TimeTableSqliteDB.m; sourceTree = "<group>"; };
 		AEE7E00A172D75CE00B421C6 /* TimeTableNotificationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeTableNotificationUtil.h; path = Util/TimeTableNotificationUtil.h; sourceTree = "<group>"; };
@@ -150,6 +156,8 @@
 				AE995B5C1732BD98004C5B9B /* TimeTableSubjectDetailViewController.m */,
 				AE1B0BEE1735075D009BD2AD /* TimeTableViewController.h */,
 				AE1B0BEF1735075D009BD2AD /* TimeTableViewController.m */,
+				AEB817D5173BE228009D2EC1 /* TimeTableModelViewController.h */,
+				AEB817D6173BE228009D2EC1 /* TimeTableModelViewController.m */,
 			);
 			path = TimeTable;
 			sourceTree = "<group>";
@@ -205,6 +213,8 @@
 				AEEC8F39172EEB29004EE343 /* TimeTableModel.m */,
 				AE995B611732C0BB004C5B9B /* ListViewModel.h */,
 				AE995B621732C0BB004C5B9B /* ListViewModel.m */,
+				AEB817D2173BDEF9009D2EC1 /* TimeTableModelView.h */,
+				AEB817D3173BDEF9009D2EC1 /* TimeTableModelView.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -305,6 +315,8 @@
 				AE995B601732BEEC004C5B9B /* TimeTableSubjectListViewController.m in Sources */,
 				AE995B631732C0BB004C5B9B /* ListViewModel.m in Sources */,
 				AE1B0BF01735075D009BD2AD /* TimeTableViewController.m in Sources */,
+				AEB817D4173BDEF9009D2EC1 /* TimeTableModelView.m in Sources */,
+				AEB817D7173BE228009D2EC1 /* TimeTableModelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

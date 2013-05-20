@@ -11,7 +11,7 @@
 
 @class Course;
 
-@interface Professor : NSObject
+@interface Professor : NSObject<SqliteModel>
 
 @property (readonly, nonatomic) NSUInteger professorId;
 @property (readonly, nonatomic, retain) NSString *lastName;
@@ -22,6 +22,5 @@
 + (Professor *)findById:(NSUInteger)professorId;
 - (Course *)getCourse;
 - (NSString *)getName;
-+ (Professor *)createModel:(FMResultSet *)rs;
 
 @end

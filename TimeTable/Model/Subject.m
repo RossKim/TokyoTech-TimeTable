@@ -40,14 +40,12 @@
 
 + (Subject *)findById:(NSUInteger)subjectId {
     NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:subjectId], nil];
-    return [TimeTableSqliteDB databaseQuery:^id(FMResultSet *rs) {
-        return [self createModel:rs];
-    }
+    return [TimeTableSqliteDB databaseQuery:(id<SqliteModel>)self
                                         sql:@"select * from subject where subject_id= ?"
                                        args:args];
 }
 
-+ (Subject *)createModel:(FMResultSet *)rs {
+- (id)createModel:(FMResultSet *)rs {
     NSDictionary *data = @{SUBJECT_ID:[rs stringForColumn:SUBJECT_ID],
                            NAME:[rs stringForColumn:NAME],
                            COURSE_ID:[rs stringForColumn:COURSE_ID],
@@ -70,9 +68,7 @@
 + (NSMutableArray *)getSubjectListWithSemester:(NSUInteger)semester
                                       courseId:(NSUInteger)courseId  {
     NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:semester], [NSNumber numberWithInt:courseId], nil];
-    return [TimeTableSqliteDB databaseQueryList:^id(FMResultSet *rs) {
-        return [self createModel:rs];
-    }
+    return [TimeTableSqliteDB databaseQueryList:(id<SqliteModel>)self
                                             sql:@"select * from subject where semester = ? and course_id = ?"
                                            args:args];
 }

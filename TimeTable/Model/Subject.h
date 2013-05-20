@@ -12,7 +12,7 @@
 @class Course;
 @class Professor;
 
-@interface Subject : NSObject
+@interface Subject : NSObject<SqliteModel>
 
 #define SUBJECT_ID @"subject_id"
 #define NAME @"name"
@@ -35,7 +35,6 @@
 + (Subject *)findById:(NSUInteger)subjectId;
 - (Course *)getCourse;
 - (Professor *)getProfessor;
-+ (Subject *)createModel:(FMResultSet *)rs;
 + (NSMutableArray *)getSubjectListWithSemester:(NSUInteger)semester courseId:(NSUInteger)courseId;
 + (NSUInteger)getSubjectCountWithSemester:(NSUInteger)semester courseId:(NSUInteger)courseId;
 - (NSString *)registerSubject;

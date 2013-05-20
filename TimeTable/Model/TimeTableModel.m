@@ -36,18 +36,14 @@
 
 + (TimeTableModel *)findById:(NSUInteger)timeTableId {
     NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:timeTableId], nil];
-    return [TimeTableSqliteDB databaseQuery:^id(FMResultSet *rs) {
-        return [self createModel:rs];
-    }
+    return [TimeTableSqliteDB databaseQuery:(id<SqliteModel>)self
                                         sql:@"select * from timetable where timetable_id=?"
                                        args:args];
 }
 
 + (TimeTableModel *)findBySubjectId:(NSUInteger)subjectId {
     NSArray *args = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:subjectId], nil];
-    return [TimeTableSqliteDB databaseQuery:^id(FMResultSet *rs) {
-        return [self createModel:rs];
-    }
+    return [TimeTableSqliteDB databaseQuery:(id<SqliteModel>)self
                                         sql:@"select * from timetable where subject_id=?"
                                        args:args];
 }
@@ -63,9 +59,7 @@
 }
 
 + (NSMutableArray *)getRegisteredSubjectArrayWithDay:(NSUInteger)day {
-    return [TimeTableSqliteDB databaseQueryList:^id(FMResultSet *rs) {
-        return [self createModel:rs];
-    }
+    return [TimeTableSqliteDB databaseQueryList:(id<SqliteModel>)self
                                             sql:@"select * from timetable where day=? order by start_time asc"
                                            args:@[[NSNumber numberWithInt:day]]];
 }
@@ -74,7 +68,7 @@
     return [Subject findById:self.subjectId];
 }
 
-+ (TimeTableModel *)createModel:(FMResultSet *)rs {
+- (id)createModel:(FMResultSet *)rs {
     NSDictionary *data = @{TIMETABLE_ID:[rs stringForColumn:TIMETABLE_ID],
                            SUBJECT_ID:[rs stringForColumn:SUBJECT_ID],
                            DAY:[rs stringForColumn:DAY],
